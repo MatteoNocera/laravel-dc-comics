@@ -15,6 +15,11 @@ class ComicController extends Controller
         return view('welcome');
     }
 
+    public function comics()
+    {
+        return view('comics');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
