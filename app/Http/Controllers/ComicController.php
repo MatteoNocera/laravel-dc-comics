@@ -17,7 +17,7 @@ class ComicController extends Controller
 
     public function comics()
     {
-        return view('comics');
+        return view('comics',);
     }
 
     /**
