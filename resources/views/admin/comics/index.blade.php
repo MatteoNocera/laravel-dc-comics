@@ -27,9 +27,14 @@
                                 <tr class="">
                                     <td scope="row">{{ $comic->id }}</td>
                                     <td>
-                                        <img width="60" src="{{ $comic->thumb }}" alt="">
-                                        {{-- <img width="100" src="{{ asset('storage/' . $comic->cover_image) }}"
-                                            alt=""> --}}
+
+                                        @if (str_contains($comic->thumb, 'http'))
+                                            <img width="60" src="{{ $comic->thumb }}" alt="">
+                                        @else
+                                            <img width="60" src="{{ asset('storage/' . $comic->thumb) }}"
+                                                alt="">
+                                        @endif
+
 
                                     </td>
                                     <td>{{ $comic->title }}</td>
