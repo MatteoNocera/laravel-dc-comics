@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //return view('welcome');
-    }
+        $comics = Comic::all();
 
+        return view('admin.comics.index', compact('comics'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,9 +37,9 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comic $comics)
+    public function show(Comic $comic)
     {
-        //return view('comics', ['comics' => Comic::all()]);
+        //
     }
 
     /**

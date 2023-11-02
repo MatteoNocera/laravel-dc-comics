@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Admin\ComicController;
+use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,4 +21,4 @@ Route::get('/', [PageController::class, 'index'])->name('welcome');
 
 Route::get('/comics', [PageController::class, 'comics'])->name('comics');
 
-Route::resource('admin.comics', ComicController::class);
+Route::resource('admin/comics', ComicController::class);
