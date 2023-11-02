@@ -15,7 +15,7 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-
+        //dd($comics);
         return view('admin.comics.index', compact('comics'));
     }
 
@@ -32,19 +32,30 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
         $comic = new Comic();
 
-        //dd($request->all());
         $data = $request->all();
 
         if ($request->has('thumb')) {
             $thumb_path = Storage::put('thumb', $request->thumb);
+            //dd($thumb_path);
             $data['thumb'] = $thumb_path;
         }
 
+        /* $comic->title = $request->title;
+        $comic->price = $request->price;
+        $comic->description = $request->description;
+        $comic->thumb = $request->thumb;
+        $comic->save(); */
+
+        /* return view('admin.comics.index'); */
+
         $comic->create($data);
 
-        return to_route('admin.comics.index');
+        $comics = Comic::all();
+
+        return to_route('comics.index', compact('comics'));
     }
 
     /**
