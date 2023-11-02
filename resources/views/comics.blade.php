@@ -13,7 +13,7 @@
                 <div class="col">
                     <div class="card h-100">
                         <div class="card-img-top">
-                            <img width="300" height="auto" src="{{ $comic['thumb'] }}" alt="">
+                            <img class="img-fluid" src="{{ $comic['thumb'] }}" alt="">
                         </div>
                         <div class="card-body">
                             <h4>{{ $comic['title'] }}</h4>
