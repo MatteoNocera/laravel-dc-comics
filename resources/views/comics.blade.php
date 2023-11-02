@@ -11,9 +11,9 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
             @foreach ($comics as $comic)
                 <div class="col">
-                    <div class="card">
-                        <div class="img-card-top">
-
+                    <div class="card h-100">
+                        <div class="card-img-top">
+                            <img width="300" height="auto" src="{{ $comic['thumb'] }}" alt="">
                         </div>
                         <div class="card-body">
                             <h4>{{ $comic['title'] }}</h4>

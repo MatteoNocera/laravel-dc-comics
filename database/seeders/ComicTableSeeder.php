@@ -6,14 +6,14 @@ use App\Models\Comic;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ComicSeeder extends Seeder
+class ComicTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $comics = config('db_comics.comics');
+        $comics = config('db_comics');
 
         foreach ($comics as $comic) {
 

@@ -12,13 +12,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        //return view('welcome');
     }
 
-    public function comics()
-    {
-        return view('comics',);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -39,9 +35,9 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comic $comic)
+    public function show(Comic $comics)
     {
-        //
+        //return view('comics', ['comics' => Comic::all()]);
     }
 
     /**
