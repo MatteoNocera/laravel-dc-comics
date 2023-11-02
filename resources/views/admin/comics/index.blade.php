@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="my-4">
-        <div class="container">
+    <section class="py-4">
+        <div class="container position-relative">
             <h4 class="text-muted text-uppercase">All Comics</h4>
-            <a class="btn btn-primary position-fixed bottom-0 end-0 m-4" href="">Add
+            <a class="btn btn-primary position-fixed bottom-0 end-0 m-4" href="{{ route('comics.create') }}">Add
                 Comic</a>
 
 
@@ -27,9 +27,9 @@
                                 <tr class="">
                                     <td scope="row">{{ $comic->id }}</td>
                                     <td>
-
-                                        <img width="100" src="{{ asset('storage/' . $comic->cover_image) }}"
-                                            alt="">
+                                        <img width="60" src="{{ $comic->thumb }}" alt="">
+                                        {{-- <img width="100" src="{{ asset('storage/' . $comic->cover_image) }}"
+                                            alt=""> --}}
 
                                     </td>
                                     <td>{{ $comic->title }}</td>
@@ -37,8 +37,10 @@
 
                                         <a href="#" class="btn btn-primary">View</a>
                                         <a href="#" class="btn btn-secondary">Edit</a>
+                                        <a href="#" class="btn btn-danger">Delete</a>
 
-                                        Delete
+
+
                                     </td>
                                 </tr>
                             @empty
