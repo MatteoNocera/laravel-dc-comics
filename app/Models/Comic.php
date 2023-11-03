@@ -10,4 +10,14 @@ class Comic extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'thumb', 'description', 'price'];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'artists' => 'array',
+        'writers' => 'array'
+    ];
 }
