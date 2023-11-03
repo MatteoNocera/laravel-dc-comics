@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <section class="py-4">
@@ -40,8 +40,8 @@
                                     <td>{{ $comic->title }}</td>
                                     <td>
 
-                                        <a href="#" class="btn btn-primary">View</a>
-                                        <a href="#" class="btn btn-secondary">Edit</a>
+                                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">View</a>
+                                        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-secondary">Edit</a>
                                         <a href="#" class="btn btn-danger">Delete</a>
 
 
