@@ -10,7 +10,9 @@
             href="{{ route('comics') }}">
             Comics
         </a>
-        <a id="admin_btn" class="btn fs-5 rounded-pill text-end justify-end" href="{{ route('comics.index') }}">Admin</a>
+        <a id="admin_btn" class="btn fs-5 rounded-pill text-end justify-end" href="{{ route('comics.index') }}">
+            Login
+        </a>
 
     </nav>
 

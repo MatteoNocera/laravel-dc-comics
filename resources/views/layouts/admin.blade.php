@@ -17,7 +17,7 @@
 
 <body>
 
-    @include('partials.header')
+    @include('partials.adminHeader')
 
 
     <main class="bg-light">
