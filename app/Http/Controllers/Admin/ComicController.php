@@ -130,9 +130,9 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        if (!is_null($comic->thumb)) {
+        /* if (!is_null($comic->thumb)) {
             Storage::delete($comic->thumb);
-        }
+        } */
 
         $comic->delete();
 

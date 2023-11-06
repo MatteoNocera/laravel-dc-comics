@@ -3,7 +3,12 @@
 @section('content')
     <section class="py-4">
         <div class="container position-relative">
-            <h4 class="my-4 display-4 fw-bold">All Comics</h4>
+            <div class="d-flex justify-content-between">
+                <h4 class="my-4 display-4 fw-bold">All Comics</h4>
+                <a href="{{ route('trash') }}">
+                    <h4 class="my-4 display-4 fw-bold">Trash 🚽</h4>
+                </a>
+            </div>
 
             @if (session('message'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -21,11 +26,12 @@
                 <div class="table-responsive-sm">
                     <table class="table table-light mb-0">
                         <thead>
-                            <tr>
+                            <tr class="">
                                 <th scope="col">ID</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
+                                <th class="text-center" scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,14 +51,16 @@
 
 
                                     </td>
-                                    <td>{{ $comic->title }}</td>
-                                    <td>
+                                    <td class="col-2">{{ $comic->title }}</td>
+                                    <td class="col-4">{{ $comic->description }}</td>
+                                    <td class="text-center">
 
-                                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">View</a>
+                                        <a href="{{ route('comics.show', $comic->id) }}"
+                                            class="btn btn-primary mx-4">View</a>
                                         <a href="{{ route('comics.edit', $comic) }}" class="btn btn-secondary">Edit</a>
 
                                         <!-- Modal trigger button -->
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-danger mx-4" data-bs-toggle="modal"
                                             data-bs-target="#modalId">
                                             Delete
                                         </button>
