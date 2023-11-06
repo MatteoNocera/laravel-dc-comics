@@ -26,20 +26,7 @@ class StoreComicRequest extends FormRequest
             'description' => 'nullable',
             'price' => 'bail|required|max:10',
             'thumb' => 'nullable'
-        ];
-    }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
-    public function messages(): array
-    {
-        return [
-            'title.required' => '👉 Inserisci un titolo per il nuovo Comic',
-            'title.min:5' => '👉 Inserisci un titolo di almeno 5 caratteri per il nuovo Comic',
-            'price.required' => '👉 Inserisci il prezzo del nuovo Comic',
         ];
     }
 }

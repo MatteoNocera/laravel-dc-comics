@@ -25,13 +25,14 @@
                         <label for="price" class="form-label">Price</label>
                         <input type="text" name="price" id="price"
                             class="form-control @error('price') is-invalid @enderror" placeholder=""
-                            value="{{ old('price', $comic->price) }}" aria-describedby="comic_id:{{ $comic->id }}">
+                            value="{{ old('price', $comic->price) }}" aria-describedby="comic_id:{{ $comic->id }}"
+                            required>
                         <small id="comic_id:{{ $comic->id }}"></small>
                     </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea type="text" rows="7" name="description" id="description" class="form-control">{{ old('title', $comic->title) }}</textarea>
+                        <textarea type="text" rows="7" name="description" id="description" class="form-control">{{ old('description', $comic->description) }}</textarea>
                     </div>
 
                     <div class="mb-3">

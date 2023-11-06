@@ -35,7 +35,6 @@ class ComicController extends Controller
      */
     public function store(StoreComicRequest $request)
     {
-
         $comic = new Comic();
 
         $val_data = $request->validated();
