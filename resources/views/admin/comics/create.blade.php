@@ -1,7 +1,23 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+
+
     <div class="container py-4 d-flex justify-content-around align-items-center">
+
+
 
         <form class="col-6" action="{{ route('comics.store') }}" method="POST" enctype="multipart/form-data">
 
@@ -9,8 +25,13 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Insert New Title Here"
-                    aria-describedby="helpId">
+                <input type="text" name="title" id="title"
+                    class="form-control @error('title') is-invalid @enderror" placeholder="Insert New Title Here"
+                    aria-describedby="helpId" required maxlength="50">
+
+                @error('title')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
@@ -19,8 +40,9 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" name="price" id="price" class="form-control" placeholder="Insert Price Here"
-                    aria-describedby="helpId">
+                <input type="text" name="price" id="price"
+                    class="form-control @error('price') is-invalid @enderror" placeholder="Insert Price Here"
+                    aria-describedby="helpId" required>
             </div>
             <div class="mb-3">
                 <label for="thumb" class="form-label">Chose Image</label>
