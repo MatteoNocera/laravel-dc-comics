@@ -5,6 +5,9 @@
         <div class="row row-cols-1 row-cols-md-3 justify-content-around">
             <div class="col">
                 <h1 class="my-4 display-4 fw-bold">Edit Comic Id: {{ $comic->id }}</h1>
+
+                @include('partials.error')
+
                 <form action="{{ route('comics.update', $comic) }}" method="post" enctype="multipart/form-data" class="">
 
                     @csrf
@@ -12,21 +15,23 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" id="title" class="form-control" placeholder=""
-                            value="{{ $comic->title }}" aria-describedby="comic_id:{{ $comic->id }}">
+                        <input type="text" name="title" id="title"
+                            class="form-control @error('title') is-invalid @enderror" placeholder=""
+                            value="{{ old('title', $comic->title) }}" aria-describedby="comic_id:{{ $comic->id }}">
                         <small id="comic_id:{{ $comic->id }}"></small>
                     </div>
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" name="price" id="price" class="form-control" placeholder=""
-                            value="{{ $comic->price }}" aria-describedby="comic_id:{{ $comic->id }}">
+                        <input type="text" name="price" id="price"
+                            class="form-control @error('price') is-invalid @enderror" placeholder=""
+                            value="{{ old('price', $comic->price) }}" aria-describedby="comic_id:{{ $comic->id }}">
                         <small id="comic_id:{{ $comic->id }}"></small>
                     </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea type="text" rows="7" name="description" id="description" class="form-control">{{ $comic->description }}></textarea>
+                        <textarea type="text" rows="7" name="description" id="description" class="form-control">{{ old('title', $comic->title) }}</textarea>
                     </div>
 
                     <div class="mb-3">
