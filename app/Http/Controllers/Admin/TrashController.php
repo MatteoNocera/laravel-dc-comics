@@ -24,11 +24,6 @@ class TrashController extends Controller
         return view('admin.comics.trash', compact('comics'));
     }
 
-    public function restore(Comic $comic)
-    {
-        $comic->restore();
-        return to_route('admin.trash');
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -70,6 +65,16 @@ class TrashController extends Controller
         //
     }
 
+
+    public function restore($comic)
+    {
+        $comic = Comic::withTrashed()->where('id', $comic->id)->first();
+
+        $comic->restore();
+
+        return to_route('admin.trash');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
@@ -78,6 +83,8 @@ class TrashController extends Controller
         if (!is_null($comic->thumb)) {
             Storage::delete($comic->thumb);
         }
+
+        $comic = Comic::withTrashed()->find('id');
         $comic->forceDelete();
         return to_route('comics.trash');
     }

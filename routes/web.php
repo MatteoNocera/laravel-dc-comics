@@ -24,8 +24,8 @@ Route::get('/comics', [PageController::class, 'comics'])->name('comics');
 
 Route::get('/show/{comic}', [PageController::class, 'show'])->name('show');
 
-Route::get('/comics/trash', [TrashController::class, 'trash'])->name('trash');
+Route::get('/admin/comics/trash', [TrashController::class, 'trash'])->name('trash');
 
-Route::post('restore/{comic}', [TrashController::class, 'restore'])->name('restore');
+Route::post('/admin/comics/{comic}/trash', [TrashController::class, 'restore'])->name('restore');
 
 Route::resource('admin/comics', ComicController::class);

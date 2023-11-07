@@ -35,7 +35,7 @@
                                 </td>
                                 <td class="col-2">{{ $comic->title }}</td>
                                 <td class="col-4">{{ $comic->description }}</td>
-                                <td class="text-center">
+                                <td class="text-center d-flex justify-content-center">
 
 
                                     <form action="{{ route('restore', $comic->id) }}" method="POST">
